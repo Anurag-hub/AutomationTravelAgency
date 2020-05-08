@@ -1,0 +1,19 @@
+.panel-heading
+{
+     background-color:rgb(99, 230, 175);
+}
+.image img
+{
+  display: inline-block;
+  width: 350px;
+  height: 350px;
+  padding: 5px;
+  left: 10%;
+  transform: translateY(300px);
+}
+h1{
+    
+    font-family: 'Kaushan Script';
+    text-align: center;
+
+}

@@ -1,0 +1,156 @@
+
+<!--- start home section-->
+<div>
+    <nav class="navbar navbar-defaul">
+        <span id="logo-IBM"><p><strong style="border-color:white; color: white;;padding: 10px;border-radius: 10px;">Automation Travel Agency</strong></p></span>
+        <ul class="nav  navbar-nav navbar-right nav-pills">
+            <li><a href=""  style="color: white;"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+            <li><a href="/"  id="profile"style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+    </nav>
+    <div class="form-group" style="width: 40%;" id="date" style="border-style: none; width: 600px;">
+        <label for="dateOfJourney" style="font-weight: bolder;">SELECT JOURNEY DATE: </label>
+        <input type="date" class="form-control" placeholder="Enter date" id="dateOfJourney"  #dateOfJourney/>
+    </div>
+        <div class="image" >
+            <img src="../../assets/images/undraw_profile_data_credit_card.svg">
+        </div>
+<div id="creditCard">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4 col-md-offset-4"  style="border-style: solid; background-color: white;">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <h1>Your Credit Card Details </h1>
+                            <img class="img-responsive cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label>CARD NUMBER</label>
+                                        <div class="input-group">
+                                            <input type="tel" class="form-control" placeholder="Valid Card Number" #cardNumber/>
+                                            <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7 col-md-7">
+                                    <div class="form-group">
+                                        <label><span class="hidden-xs">VALID FROM</span><span class="visible-xs-inline" #validFrom>EXP</span> DATE</label>
+                                        <input type="tel" class="form-control" placeholder="MM / YY" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-7 col-md-7">
+                                    <div class="form-group">
+                                        <label><span class="hidden-xs">VALID TILL</span><span class="visible-xs-inline" #validTill>EXP</span> DATE</label>
+                                        <input type="tel" class="form-control" placeholder="MM / YY" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-5 col-md-5 pull-right">
+                                    <div class="form-group">
+                                        <label>CV CODE</label>
+                                        <input type="tel" class="form-control" placeholder="CVC" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label>Enter Balance</label>
+                                        <input type="text" class="form-control" placeholder="Enter Correct balance , Else FINE to be paid !!" #balance/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+   </div>
+</div>
+</div>
+<button id="userInfo" class="btn btn-success" >Sumbit</button><!--(click)="onSumbit(dateOfJourney,cardNumber,validFrom,validTill,balance)"-->
+<div id="big-table-container">
+<div id="tableContainer">
+ <div id="route-table">   
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                    <tr >
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Registration Number</th>
+                        <th>Seating Capacity</th>
+                        <th>Fare Per Km</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                            <td>vehicle</td>    
+                            <td>safggs</td>                            
+                    </tr>
+            
+                </tbody>
+            </table>
+            <input type="text" class="form-control"placeholder=" enterVehicleId" #vehicleId>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div id="vehicle-table">   
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-responsive">
+                    <thead>
+                        <tr >
+                            <th>ID</th>
+                            <th>Source</th>
+                            <th>Destination</th>
+                            <th>Distance</th>
+                            <th>Travel Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                                <td>Route</td> 
+                                <td>route</td>
+                                <td>route</td>                                  
+                                <td>route</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <input type="text" class="form-control"placeholder=" enterRouteId" #routeId>
+            </div>
+        </div>
+    </div>
+    </div>
+    <button id="booking" class="btn btn-success">Book</button><!-- (click)="onBook(vehicleId,routeId)"-->
+    </div>
+    
+</div>
+
+
+
+<div id="footer-container">
+    <footer>
+    <div class="social">
+        <a href="#" class="fa fa-youtube" id="social-icon"style="color: rgb(255, 255, 255); "></a>
+        <a href="https://github.com/saismaran98/eclipse-workspace" id="social-icon" target="_blank" class="fa fa-github" style="color: white;"></a>
+        <a href="#" class="fa fa-linkedin" style="color: white;" id="social-icon"></a>
+        <a href="#" class="fa fa-google-plus" aria-hidden="true" style="color: white;" id="social-icon"></a>
+        <a href="#" class="fa fa-twitter" aria-hidden="true" style="color: white;" id="social-icon"></a>
+    </div>
+</footer>
+</div>

@@ -1,0 +1,61 @@
+<nav class="navbar navbar-defaul">
+    <span id="logo-IBM"><p><strong style="border-style: solid; border-color:white; color: white;margin: 10px;padding: 10px;border-radius: 10px;">Automation Travel Agency</strong></p></span>
+    <ul class="nav  navbar-nav navbar-right nav-pills">
+        <li><a href="/" style="color: white;"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+        <li><a href="#" id="profile"style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+</nav>
+    <div class ="container">
+        <div id="img-1">
+            <img src="../../assets/images/undraw_laravel_and_vue_59tp.svg" id="img-1" alt="">
+        </div>
+        <form class="form-group">
+        <h1 style="font-weight: bolder;">Register Yourself</h1>
+        <div  id="form-register"> 
+            <div class="form-group form">
+                 <label for="uname"><h5>First Name :</h5></label>
+                 <input  type="text" class="form-control col-md-4" #firstName placeholder="Enter title " required>
+           </div>
+       
+            <div class="form-group form">
+               <label for="uname" ><h5>Last Name:</h5></label>
+               <input type="text" class="form-control col-md-4" #lastName placeholder="Enter Name" name="lastname" required>
+           </div> 
+            <div class="form-group form">
+                <label for="uname" ><h5>Email Id:</h5></label>
+                <input type="text" placeholder=" abc@email.com"class="form-control col-md-4" #emailId required>
+            </div>
+            <div class="form-group form">
+                <label for="uname" ><h5>Password:</h5></label>
+                <input type="password" class="form-control col-md-4" #password required>
+            </div> 
+            <br/><br/>
+                <div class="btn-group" id="btn-div" style="align-self: center;">
+                    
+                    <button  id="cancel-btn"class="btn btn-danger"> Cancel</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="register-btn" class="btn btn-info" (click)="setAdmin(firstName,lastName,emailId,password)" >Register</button>
+                    <!-- (click)="setAdmin(firstName,lastName,emailId,password)" -->
+                </div>
+                <div id="login-float">
+                <br>
+                 <h6>Already Registered</h6>
+              <button  class="btn btn-success" (click)="goToLogin()" > Login </button>     
+              </div>
+            </div>
+        </form>
+    
+    </div>
+
+
+<div id="footer-container">
+    <footer>
+    <div class="social">
+        <a href="#" class="fa fa-youtube" id="social-icon"style="color: rgb(255, 255, 255); "></a>
+        <a href="https://github.com/saismaran98/eclipse-workspace" id="social-icon" target="_blank" class="fa fa-github" style="color: white;"></a>
+        <a href="#" class="fa fa-linkedin" style="color: white;" id="social-icon"></a>
+        <a href="#" class="fa fa-google-plus" aria-hidden="true" style="color: white;" id="social-icon"></a>
+        <a href="#" class="fa fa-twitter" aria-hidden="true" style="color: white;" id="social-icon"></a>
+    </div>
+</footer>
+</div>

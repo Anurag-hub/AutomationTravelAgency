@@ -1,0 +1,188 @@
+<nav class="navbar navbar-defaul">
+    <span id="logo-IBM"><p><strong style="border-style: solid; border-color:white; color: white;margin: 10px;padding: 10px;border-radius: 10px;">Automation Travel Agency</strong></p></span>
+    <ul class="nav  navbar-nav navbar-right nav-pills">
+
+        <li><a href="/" style="color: white;"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        <li><a href="#" id="profile"style="color: white;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+</nav>
+<div>
+    <img src="../../assets/images/undraw_sign_in_e6hj.svg" id="sign-up"alt="">
+</div>
+<div class ="container">
+    <form> 
+        <h2 class="register-heading" style="font-weight: bolder;">Register Yourself</h2>
+        <div id="form-register">
+        
+        <div class="form-group form">
+             <label for="uname" ><h5>First Name :</h5></label>
+             <input  type="text" class="form-control col-md-4" #firstname placeholder="Enter title " required>
+       </div>
+        <div class="form-group form"> 
+            <label for="uname" ><h5>Last Name:</h5></label>
+           <input type="text" class="form-control col-md-4" #lastname placeholder="Enter Name" name="lastname" required>
+       </div>
+        <div class="form-group form">
+           <label for="uname" ><h5>Date Of Birth:</h5></label>
+           <input type="date" class="form-control" placeholder="Enter date" #dateOfBirth />
+           
+       </div>
+       <label >Gender</label>
+                                <div >  
+                                        Male :
+                                    
+                                            <input type="radio" checked="checked" name="gender" #male>
+                                            <span class="checkmark"></span>
+                                       
+                                        Female :
+                                            <input type="radio" name="gender" #female>
+                                            <span class="checkmark"></span>
+                                    </div>    
+        <div class="form-group form">
+             <label for="uname" ><h5>Street:</h5></label>
+             <input type="text" class="form-control col-md-4" #street required >
+       </div> 
+       <div class="form-group form">
+           <label for="uname" ><h5>Location:</h5></label>
+           <input type= "text" class="form-control col-md-4" #location placeholder="Enter Location" >
+       </div>
+       <div class="form-group form">
+             <label for="uname" ><h5>City:</h5></label>
+             <input type="text" class="form-control col-md-4" #city>
+       </div> 
+       <div class="form-group form">
+        <label for="uname" ><h5>State:</h5></label>
+        <input type="text" class="form-control col-md-4" #state>
+        </div> 
+        <div class="form-group form">
+            <label for="uname" ><h5>PinCode:</h5></label>
+            <input type="text" class="form-control col-md-4" #pincode required> 
+        </div> 
+            <div class="form-group form">
+            <label for="uname" ><h5>Mobile Number:</h5></label>
+            <input type="text" class="form-control col-md-4" #mobilenumber required>
+        </div> 
+        <div class="form-group form">
+            <label for="uname" ><h5>Email Id:</h5></label>
+            <input type="text" class="form-control col-md-4" #emailId required>
+        </div>
+        <div class="form-group form">
+            <label for="uname" ><h5>Password:</h5></label>
+            <input type="password" class="form-control col-md-4" #password required>
+        </div> 
+        <br/><br/>
+            <div class="btn-group" style="align-self: center;">
+                <button  id="cancel-btn"class="btn btn-danger"> Cancel</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="register-btn" class="btn btn-info" (click)="setCustomer(firstname,lastname,dateOfBirth,male,female,street,location,city,state,pincode,mobilenumber,emailId,password)" >Register</button>
+                <!-- (click)="setCustomer(firstname,lastname,dateOfBirth,male,female,street,location,city,state,pincode,mobilenumber,emailId,password)" -->
+            </div>
+
+            <div id="login-float">
+                <br>
+                 <h6>Already Registered</h6>
+              <button  id="login-btn" (click)="goToLogin()" class="btn btn-success" > Login </button>     
+              </div>
+        </div>
+    </form>
+  
+</div>
+<div id="footer-container">
+    <footer>
+    <div class="social">
+        <a href="#" class="fa fa-youtube" id="social-icon"style="color: rgb(255, 255, 255); "></a>
+        <a href="https://github.com/saismaran98/eclipse-workspace" id="social-icon" target="_blank" class="fa fa-github" style="color: white;"></a>
+        <a href="#" class="fa fa-linkedin" style="color: white;" id="social-icon"></a>
+        <a href="#" class="fa fa-google-plus" aria-hidden="true" style="color: white;" id="social-icon"></a>
+        <a href="#" class="fa fa-twitter" aria-hidden="true" style="color: white;" id="social-icon"></a>
+    </div>
+</footer>
+</div>
+
+<!-- 
+<div class ="container">
+    <form>
+    <h1>Register Yourself</h1>
+    <br/>
+    <div>
+   <h3> Login As:</h3> <button  class="btn btn-primary"> Admin </button><div class=btn2> <h3>Already a User:</h3>  <button class="btn btn-primary"> Login</button></div>
+   </div>   
+        <h3 class="register-heading">Register as a Customer</h3>
+        <div class="form-group form">
+             <label for="uname" ><h5>First Name :</h5></label>
+             <input  type="text" class="form-control col-md-4" #firstname placeholder="Enter title " required>
+       </div>
+        <div class="form-group form"> 
+            <label for="uname" ><h5>Last Name:</h5></label>
+           <input type="text" class="form-control col-md-4" #lastname placeholder="Enter Name" name="lastname" required>
+       </div>
+        <div class="form-group form">
+           <label for="uname" ><h5>Date Of Birth:</h5></label>
+           <input type="date" class="form-control" placeholder="Enter date" #dateOfBirth />
+           
+       </div>
+       <label >Gender</label>
+                                <div >  
+                                        Male :
+                                    
+                                            <input type="radio" checked="checked" name="gender" #male>
+                                            <span class="checkmark"></span>
+                                       
+                                        Female :
+                                            <input type="radio" name="gender" #female>
+                                            <span class="checkmark"></span>
+                                    </div>    
+        <div class="form-group form">
+             <label for="uname" ><h5>Street:</h5></label>
+             <input type="text" class="form-control col-md-4" #street required >
+       </div> 
+       <div class="form-group form">
+           <label for="uname" ><h5>Location:</h5></label>
+           <input type= "text" class="form-control col-md-4" #location placeholder="Enter Location" >
+       </div>
+       <div class="form-group form">
+             <label for="uname" ><h5>City:</h5></label>
+             <input type="text" class="form-control col-md-4" #city>
+       </div> 
+       <div class="form-group form">
+        <label for="uname" ><h5>State:</h5></label>
+        <input type="text" class="form-control col-md-4" #state>
+        </div> 
+        <div class="form-group form">
+            <label for="uname" ><h5>PinCode:</h5></label>
+            <input type="text" class="form-control col-md-4" #pincode required> 
+        </div> 
+            <div class="form-group form">
+            <label for="uname" ><h5>Mobile Number:</h5></label>
+            <input type="text" class="form-control col-md-4" #mobilenumber required>
+        </div> 
+        <div class="form-group form">
+            <label for="uname" ><h5>Email Id:</h5></label>
+            <input type="text" class="form-control col-md-4" #emailId required>
+        </div>
+        <div class="form-group form">
+            <label for="uname" ><h5>Password:</h5></label>
+            <input type="password" class="form-control col-md-4" #password required>
+        </div> 
+        <br/><br/>
+            <div class="btn-group" style="align-self: center;">
+                <button  class="btn1"> Cancel</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button  class="btn1" (click)="setCustomer(firstname,lastname,dateOfBirth,male,female,street,location,city,state,pincode,mobilenumber,emailId,password)">Register</button>
+            </div>
+            <br><br>
+            
+    </form>
+  
+</div>
+<div id="footer-container">
+<footer>
+    <a href="#">About: This is some random lines &nbsp;</a>
+    <div class="social">
+        <a href="#" class="fa fa-youtube" id="social-icon"style="color: rgb(255, 255, 255); "></a>
+        <a href="https://github.com/saismaran98/eclipse-workspace" id="social-icon" target="_blank" class="fa fa-github" style="color: white;"></a>
+        <a href="#" class="fa fa-linkedin" style="color: white;" id="social-icon"></a>
+    </div>
+    <p>@IBM Travel Corporation</p>
+</footer>
+</div> -->

@@ -1,0 +1,111 @@
+html,body{
+    display: block;
+}
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+p{
+    margin: 0%;
+    padding: 0%;
+    transform: translate(40px,20px);
+}
+
+
+nav li{
+    background-color: rgb(91, 196, 152);
+    border-radius: 5px; 
+    margin:1px 25px;
+
+}
+nav{
+    background-color: rgb(91, 196, 152);
+}
+h3{
+    font-weight: bold;
+}
+.container{
+    transform: translateY(-70px);
+}
+#welcome{
+    margin: 0px;
+    padding: 0px;
+}
+#page-title{
+    margin-left: 450px;
+    transform: translateY(100px);
+    font-family: 'Kaushan Script';
+    font-weight: bolder;
+    color: rgb(56, 102, 100);
+    /* float: right; */
+}
+#vehicle-list{
+    height: 100px;
+    margin-left: 980px;
+    transform: translateY(170px);
+}
+tr th{
+    
+    text-align: center;
+    font-weight: bolder;
+    padding: 15px;
+}
+td{
+    text-align: center;
+    background-color: rgb(238, 248, 236);
+   
+}
+
+#footer-container{
+    background-color:rgb(4, 85, 54);
+    height: 50px;
+    width: 100%;
+    padding: 90px;
+    transform: translateY(311px);
+    position: absolute;
+}
+footer{
+	position: relative;
+    align-items: center;
+
+}
+footer p{
+	font-family: calibri;
+	font-weight: bold;
+	justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    
+	
+}
+footer p:nth-child(1){
+	font-weight: bold;
+	color: #070303;
+	line-height: 10px;
+	align-items: center;
+}
+th{
+    background-color: rgb(91, 196, 152);
+}
+
+footer .social a{
+    border:1px;
+    width: 50px;
+    height: 50px;
+    padding-top: 15px;
+    margin-right: 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    border-radius: 5px;
+    background-color: rgb(156, 147, 158);
+    transform: translate(700px,-15px);
+}
+a:hover{
+	transform: scale(1.1);
+}
+
+#footer-text{
+    text-align: center;
+    transform: translateY(60px);
+}

@@ -1,0 +1,78 @@
+<div id="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top">
+          <span id="logo-IBM"><p><strong style="border-style: solid; border-color: rgb(3, 8, 6); margin: 10px;padding: 10px;border-radius: 10px;">Automation Travel Agency</strong></p></span>
+          <ul class="nav  navbar-nav navbar-right nav-pills">
+              <li><a href="dashboard.html" style="color: black;"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+              <li><a href="#" style="color: black;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+      </nav>
+  </div>
+  <div id="bg-img" class="view">
+      <div class="ful-bg-img"></div>
+  </div>
+  <img id="top-image" src="images/car-funny1.svg"> 
+  
+  <div class="container">
+      
+       <div id="welcome">
+          <img src="../../assets/images/vehicle-list.svg" id="vehicle-list" alt="">  <h1 id="page-title">Driver List</h1>
+        </div>
+      <div id="funny-car">
+          <img id="top-image2" src="../../assets/images/undraw_toy_car_7umw.svg" style="height:100px">
+      </div>
+        
+        
+        <label >Driver Id</label>
+        <input (input)="vehicleid=$event.target.value" type="text" class="form-control">
+        <button class="btn btn-success" (click)="getData()">Get Details</button>
+        <input (input)="vehicleid=$event.target.value" type="text" class="form-control">
+        <button class="btn btn-success" (click)="deleteVehicle()">Delete Details</button>
+    
+                
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-responsive">
+                    <thead>
+                        <tr >
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Street</th>
+                            <th>Location</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Pincode</th>
+                            <th>Mobile Number</th>
+                            <th>License Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let list of driverlist">
+                                    <td>{{list.driverId}}</td>
+                                    <td>{{list.name}}</td>
+                                    <td>{{list.location}}</td>
+                                    <td>{{list.city}}</td>
+                                    <td>{{list.state}}</td>
+                                    <td>{{list.pincode}}</td>     
+                                    <td>{{list.mobilenumber}}</td>   
+                                    <td>{{list.licensenumber}}</td>                                  
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer-container">
+<footer>
+        <div class="social">
+            <a href="#" class="fa fa-youtube" id="social-icon"style="color: rgb(255, 255, 255); "></a>
+            <a href="https://github.com/saismaran98/eclipse-workspace" id="social-icon" target="_blank" class="fa fa-github" style="color: white;"></a>
+            <a href="#" class="fa fa-linkedin" style="color: white;" id="social-icon"></a>
+            <a href="#" class="fa fa-google-plus" aria-hidden="true" style="color: white;" id="social-icon"></a>
+            <a href="#" class="fa fa-twitter" aria-hidden="true" style="color: white;" id="social-icon"></a>
+        </div>
+       
+</footer>
+</div>
+    

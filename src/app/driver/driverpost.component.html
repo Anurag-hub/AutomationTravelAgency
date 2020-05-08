@@ -1,0 +1,91 @@
+<form #addForm="ngForm" (ngSubmit)="onSubmit(name,street,location,city,state,pincode,mobilenumber,licensenumber)" class="alignRight col-md-6 offset-md-6" novalidate>
+    <h1>Add Driver</h1>
+<br>
+<div class="form-group">
+<input type='text' name="name" class="form-control" placeholder="Enter Name" #name="ngModel" required minlength="3" maxlength="20" ngModel>
+<div *ngIf="name.errors && name.touched" class="alert alert-danger">
+ <div [hidden]="!name.errors.required" class="alert alert-danger">
+ Please Enter Name
+ </div>
+ <div [hidden]="!name.errors.minlength" class="alert alert-danger">
+   Name should be minimum 3 characters long 
+</div>
+<div [hidden]="!name.errors.maxlength" class="alert alert-danger">
+   Name should be maximum 20 characters long 
+  </div>
+</div>
+</div>
+<div class="form-group">
+<input type='text' name="street" class="form-control" placeholder="Enter Street" #street="ngModel" required minlength="3"  ngModel>
+<div *ngIf="street.errors && street.touched" class="alert alert-danger">
+ <div [hidden]="!street.errors.required" class="alert alert-danger">
+ Please Enter Street
+ </div>
+ <div [hidden]="!street.errors.minlength" class="alert alert-danger">
+ Street should be minimum 3 characters long 
+</div>
+</div>
+</div>
+
+<div class="form-group">
+    <input type='text' name="location" class="form-control" placeholder="Enter Location" #location="ngModel" required minlength="3"  ngModel>
+    <div *ngIf="location.errors && location.touched" class="alert alert-danger">
+     <div [hidden]="!location.errors.required" class="alert alert-danger">
+     Please Enter Location
+     </div>
+     <div [hidden]="!location.errors.minlength" class="alert alert-danger">
+     Location should be minimum 3 characters long 
+    </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <input type='text' name="city" class="form-control" placeholder="Enter City" #city="ngModel" required minlength="3"  ngModel>
+        <div *ngIf="city.errors && city.touched" class="alert alert-danger">
+         <div [hidden]="!city.errors.required" class="alert alert-danger">
+         Please Enter City
+         </div>
+         <div [hidden]="!city.errors.minlength" class="alert alert-danger">
+         City should be minimum 3 characters long 
+        </div>
+        </div>
+        </div>
+        <div class="form-group">
+            <input type='text' name="state" class="form-control" placeholder="Enter State" #state="ngModel" required minlength="3"  ngModel>
+            <div *ngIf="state.errors && state.touched" class="alert alert-danger">
+             <div [hidden]="!street.errors.required" class="alert alert-danger">
+             Please Enter State
+             </div>
+             <div [hidden]="!state.errors.minlength" class="alert alert-danger">
+             State should be minimum 3 characters long 
+            </div>
+            </div>
+            </div>
+<div class="form-group">
+<input type='number' name="pincode" class="form-control" placeholder="Enter the pincode " #pincode="ngModel" required ngModel>
+<div *ngIf="pincode.errors && pincode.touched" class="alert alert-danger">
+<div [hidden]="!pincode.errors.required" class="alert alert-danger">
+Please Enter Pincode
+</div>
+</div>
+</div>
+<div class="form-group">
+<input type='number' name="mobilenumber" class="form-control" placeholder="Enter MobileNumber" #mobilenumber="ngModel" required ngModel>
+<div *ngIf="mobilenumber.errors && mobilenumber.touched" class="alert alert-danger">
+<div [hidden]="!mobilenumber.errors.required" class="alert alert-danger">
+Please Enter MobileNumber
+</div>
+</div>
+</div>
+<div class="form-group">
+    <input type='number' name="licensenumber" class="form-control" placeholder="Enter License Number" #licensenumber="ngModel" required ngModel>
+    <div *ngIf="licensenumber.errors && licensenumber.touched" class="alert alert-danger">
+    <div [hidden]="!licensenumber.errors.required" class="alert alert-danger">
+    Please Enter License Number
+    </div>
+    </div>
+    </div>
+
+
+<button [disabled]="!addForm.form.valid" type="submit" class="btn btn-primary">Add Details</button>
+</form>
