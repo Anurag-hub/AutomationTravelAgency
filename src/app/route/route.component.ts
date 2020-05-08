@@ -42,7 +42,7 @@ import { RouteService } from '../services/route.services';
      {
        this.sessionId=sessionStorage.getItem("sessionId");
      
-       
+       console.log("sessionId",this.sessionId)
             this.routeService.addRouteDetails({
  
                 "source":source.value,
@@ -63,7 +63,6 @@ import { RouteService } from '../services/route.services';
 updateRoute(routeId:any,source:any,destination:any,distance:any,time:any) {
   let temp=[];
   this.sessionId=sessionStorage.getItem("sessionId");
-  this.sessionId="5017e";
   let route = {
     
     source:source.value,
@@ -100,7 +99,6 @@ updateRoute(routeId:any,source:any,destination:any,distance:any,time:any) {
     console.log("id=",routeid);
     let temp=[];
     this.sessionId=sessionStorage.getItem("sessionId");
-this.sessionId="5017e";
 
     this.routeService.deleteRouteDetails(routeid,this.sessionId).
     subscribe(

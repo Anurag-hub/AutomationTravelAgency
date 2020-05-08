@@ -20,6 +20,7 @@ export class RouteService{
   }
   addRouteDetails(routeObj,sessionId:string): Observable<Object> {
     return this._httpClient.post('http://localhost:8080/app/route',JSON.stringify(routeObj),{headers:this.httpHeaders.set('authtoken',sessionId)});
+
   }
   updateRouteDetails(id,routeObj,sessionId): Observable<Object> {
     return this._httpClient.put('http://localhost:8080/app/route/'+id,JSON.stringify(routeObj),{headers:this.httpHeaders.set('authtoken',sessionId)});
