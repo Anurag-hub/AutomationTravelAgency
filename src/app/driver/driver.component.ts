@@ -1,45 +1,98 @@
-import { Component } from '@angular/core';
-import {DriverService} from '../services/driver.services'
-export class Driver {
-public driverId: String;
-public name: string;
-public street: string;
-public location: string;
-public city: string;
-public state: string;
-public pincode: string;
-public mobileNumber: Number;
-public licenseNumber: string;
-}
-@Component({
-selector: 'register-driver',
-templateUrl: './driver.component.html',
-//styleUrls: ['./app.component.css']
-providers: [ DriverService ]
-})
-export class DriverComponent {
-public driver;
-public sessionId:string="5017e";
-constructor(public driverService:DriverService)
-{
+import { Component, OnInit } from '@angular/core';
+import { DriverService } from '../services/driver.services';
+//import {Pipe,PipeTransform} from '@angular/core';
 
+@Component({
+  selector: 'appdriver',
+  templateUrl: './driver.component.html',
+ providers:[DriverService]
+  })
+
+  export class DriverComponent 
+  {
+    id: number;
+    add=false;
+    update=false;
+     public driver;
+     public sessionId;
+    
+     
+     constructor(public driverService:DriverService)
+     {
+      
+     }
+     addDriver(){
+       this.add=true;
+     }
+     upDriver(){
+      this.update=true;
+    }
+     onSubmit(name:any,street:any,location:any,city:any,state:any,pincode:any,mobile:any,license:any)
+     {
+       this.sessionId=sessionStorage.getItem("sessionId");
+       this.sessionId="5017e";
+       
+            this.driverService.addDriverDetails({
+                "name":name.value,
+                "street":street.value,
+                "location":location.value,
+                 "city":city.value,
+                 "state":state.value,
+                 "pincode":pincode.value,
+                 "mobile":mobile.value,
+                  "license":license.value,
+                 
+                
+              },this.sessionId).subscribe((response) => {
+            console.log("response array", response)
+            this.driver.push(response);
+            console.log(this.driver);
+            
+            
+       });
+     
+  }
+  
+updateDriver(id:any,name:any,street:any,location:any,city:any,state:any,pincode:any,mobile:any,license:any) {
+  this.sessionId=sessionStorage.getItem("sessionId");
+  this.sessionId="5017e";
+  let driver = {
+    "id":id.value,
+    "name":name.value,
+    "street":street.value,
+    "location":location.value,
+     "city":city.value,
+     "state":state.value,
+     "pincode":pincode.value,
+     "mobile":mobile.value,
+      "license":license.value,
+  
+  }
+
+this.id=id.value;
+
+
+    this.driverService.updateDriverDetails(driver,this.sessionId,this.id).subscribe(
+      (response)=>{console.log("Driver updated"+response.toString())}
+      );
+    
+  
+ 
+   
+  }
+  deleteDriver(driverId:number) {
+    this.sessionId=sessionStorage.getItem("sessionId");
+
+
+    this.driverService.deleteDriverDetails(this.sessionId,this.id).
+    subscribe(
+      (response)=>{console.log("Driver deleted")}
+      );
+
+ 
+  }
+
+ 
 }
- onSubmit(name:any,street:any,location:any,city:any,state:any,pincode:any,mobilenumber:any,licenseNumber:any)
-{
-    console.log(licenseNumber)
-this.driverService.addDriverDetails({
-"name":name.value,
-"street":street.value,
-"location":location.value,
-"city":city.value,
-"state":state.value,
-"pincode":pincode.value,
-"mobileNo":mobilenumber.value,
-"licenseNumber":licenseNumber.value
-},this.sessionId
-).subscribe((response)=> {
-this.driver=response;
-console.log("New Driver added : ",response);
-});
-}
-}
+
+

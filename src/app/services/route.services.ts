@@ -16,12 +16,12 @@ export class RouteService{
     return this._httpClient.get('http://localhost:8080/app/route',{headers:this.httpHeaders});
   }
   deleteRouteDetails(id,sessionId): Observable<Object> {
-    return this._httpClient.delete('http://localhost:8080/app/route/{routeId} ',{headers:this.httpHeaders.set('authToken',sessionId)});
+    return this._httpClient.delete('http://localhost:8080/app/route/'+id,{headers:this.httpHeaders.set('authtoken',sessionId)});
   }
   addRouteDetails(routeObj,sessionId:string): Observable<Object> {
     return this._httpClient.post('http://localhost:8080/app/route',JSON.stringify(routeObj),{headers:this.httpHeaders.set('authtoken',sessionId)});
   }
-  updateRouteDetails(routeObj,sessionId): Observable<Object> {
-    return this._httpClient.put('http://localhost:8080/app/route/{routeId} ',JSON.stringify(routeObj),{headers:this.httpHeaders.set('authtoken',sessionId)});
+  updateRouteDetails(id,routeObj,sessionId): Observable<Object> {
+    return this._httpClient.put('http://localhost:8080/app/route/'+id,JSON.stringify(routeObj),{headers:this.httpHeaders.set('authtoken',sessionId)});
   }
 }

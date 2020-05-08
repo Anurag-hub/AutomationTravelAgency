@@ -1,0 +1,76 @@
+<form #addForm="ngForm" (ngSubmit)="onSubmit(source,destination,distance,time)" class="alignRight col-md-6 offset-md-6" novalidate>
+    <h1>Add Route</h1>
+<br>
+<div class="form-group">
+<input type='text' name="source" class="form-control" placeholder="Enter Source" #source="ngModel" required minlength="3" maxlength="20" ngModel>
+<div *ngIf="source.errors && source.touched" class="alert alert-danger">
+ <div [hidden]="!source.errors.required" class="alert alert-danger">
+ Please Enter Source
+ </div>
+ <div [hidden]="!source.errors.minlength" class="alert alert-danger">
+   Destination should be minimum 3 characters long 
+</div>
+<div [hidden]="!source.errors.maxlength" class="alert alert-danger">
+   Destination should be maximum 20 characters long 
+  </div>
+</div>
+</div>
+<div class="form-group">
+<input type='text' name="destination" class="form-control" placeholder="Enter Destination" #destination="ngModel" required minlength="3" maxlength="20" ngModel>
+<div *ngIf="destination.errors && destination.touched" class="alert alert-danger">
+ <div [hidden]="!destination.errors.required" class="alert alert-danger">
+ Please Enter Destination
+ </div>
+ <div [hidden]="!destination.errors.minlength" class="alert alert-danger">
+ Destination should be minimum 3 characters long 
+</div>
+<div [hidden]="!destination.errors.maxlength" class="alert alert-danger">
+   Destination should be maximum 20 characters long 
+  </div>
+</div>
+</div>
+<div class="form-group">
+<input type='number' name="distance" class="form-control" placeholder="Enter the distance " #distance="ngModel" required ngModel>
+<div *ngIf="distance.errors && distance.touched" class="alert alert-danger">
+<div [hidden]="!distance.errors.required" class="alert alert-danger">
+Please Enter Distance
+</div>
+</div>
+</div>
+<div class="form-group">
+<input type='number' name="time" class="form-control" placeholder="Enter TravelDuration in Hours" #time="ngModel" required ngModel>
+<div *ngIf="time.errors && time.touched" class="alert alert-danger">
+<div [hidden]="!time.errors.required" class="alert alert-danger">
+Please Enter TravelDuration in Hours
+</div>
+
+</div>
+</div>
+
+
+<button [disabled]="!addForm.form.valid" type="submit" class="btn btn-primary">Add Details</button>
+</div>
+
+<div class='table-responsive'>  
+    <table class='table'>  
+        <thead>  
+            <tr>  
+              <th>ID</th>
+              <th>Source</th>
+              <th>Destination</th>
+              <th>Distance</th>
+              <th>Travel Duration</th>
+            </tr>  
+        </thead>  
+        <tbody>  
+          <tr *ngFor="let ele of route">
+            <td>{{ele.routeId}}</td>
+            <td>{{ele.source}}</td>
+            <td>{{ele.destination}}</td>
+            <td>{{ele.distance}}</td>
+            <td>{{ele.travelDuration}}</td>                                  
+          </tr>  
+        </tbody>  
+    </table>  
+</div>  
+</form>

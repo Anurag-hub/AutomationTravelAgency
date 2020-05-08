@@ -15,7 +15,7 @@
   <div class="container">
       
        <div id="welcome">
-          <img src="../../assets/images/vehicle-list.svg" id="vehicle-list" alt="">  <h1 id="page-title">Route List</h1>
+          <img src="../../assets/images/vehicle-list.svg" id="vehicle-list" alt="" style="width: 0%;">  <h1 id="page-title">Route List</h1>
         </div>
       <div id="funny-car">
           <img id="top-image2" src="../../assets/images/undraw_toy_car_7umw.svg" style="height:100px">
@@ -31,6 +31,8 @@
                               <th>Destination</th>
                               <th>Distance</th>
                               <th>Travel Duration</th>
+                              <th>Action</th>
+                              <th>Action</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -39,17 +41,22 @@
                                       <td>{{ele.source}}</td>
                                       <td>{{ele.destination}}</td>
                                       <td>{{ele.distance}}</td>
-                                      <td>{{ele.travelDuration}}</td>                                  
+                                      <td>{{ele.travelDuration}}</td> 
+                                      <td><button (click)="upRoute()" type="submit" class="btn btn-primary">Update</button>
+                                      </td>      
+                                      <td><button (click)="deleteRoute(ele.routeId)"  class="btn btn-danger">Delete</button>
+                           
                           </tr>
                       </tbody>
                   </table>
-                  
+                  <button (click)="addRoute()" type="submit" class="btn btn-primary">Add Route</button>
+
               </div>
           </div>
       </div>
       <br><br><br><br><br><br><br><br>
       <div>
-        <form #addForm="ngForm" (ngSubmit)="onSubmit(source,destination,distance,time)" class="alignRight col-md-6 offset-md-6" novalidate>
+        <form *ngIf="add" #addForm="ngForm" (ngSubmit)="onSubmit(source,destination,distance,time)" class="alignRight col-md-6 offset-md-6" novalidate>
             <h1>Add Route</h1>
         <br>
         <div class="form-group">
@@ -103,33 +110,29 @@
         <br><br><br><br><br><br><br>
         
         <div class='table-responsive'>  
-            <table class='table'>  
-                <thead>  
-                    <tr>  
-                      <th>ID</th>
-                      <th>Source</th>
-                      <th>Destination</th>
-                      <th>Distance</th>
-                      <th>Travel Duration</th>
-                    </tr>  
-                </thead>  
-                <tbody>  
-                  <tr *ngFor="let ele of route">
-                    <td>{{ele.routeId}}</td>
-                    <td>{{ele.source}}</td>
-                    <td>{{ele.destination}}</td>
-                    <td>{{ele.distance}}</td>
-                    <td>{{ele.travelDuration}}</td>                                  
-                  </tr>  
-                </tbody>  
-            </table>  
+            <table class='table'>    
+            </table> 
+            
         </div>  
         </form>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <div>
-            <form #updateForm="ngForm" (ngSubmit)="updateRoute(id,source,destination,distance,time)" class="alignRight col-md-6 offset-md-6" novalidate>
+        
+                <div>
+            <form *ngIf="update" #updateForm="ngForm" (ngSubmit)="updateRoute(routeId,source,destination,distance,time)" class="alignRight col-md-6 offset-md-6" novalidate>
                 <h1>Update Route</h1>
             <br>
+            <div class="form-group">
+                <input type='text' name="routeId" class="form-control" placeholder="Enter Id" #routeId="ngModel" required minlength="1"  ngModel>
+                <div *ngIf="routeId.errors && routeId.touched" class="alert alert-danger">
+                 <div [hidden]="!routeId.errors.required" class="alert alert-danger">
+                 Please Enter id
+                 </div>
+                 <div [hidden]="!routeId.errors.minlength" class="alert alert-danger">
+                   id should be minimum 3 characters long 
+                </div>
+
+                </div>
+                </div>
+
             <div class="form-group">
             <input type='text' name="source" class="form-control" placeholder="Enter Source" #source="ngModel" required minlength="3" maxlength="20" ngModel>
             <div *ngIf="source.errors && source.touched" class="alert alert-danger">
@@ -176,8 +179,20 @@
             </div>
             </div>
             
+            <!-- <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+                      <mat-icon aria-label="Edit">update</mat-icon>
+                    </button>
+                  <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn">
+                      <mat-icon aria-label="Delete">delete</mat-icon>
+                    </button>
+                </mat-cell>
+              </ng-container> -->
             
-            <button [disabled]="!updateForm.form.valid" type="submit" class="btn btn-primary">Add Details</button>
+            
+            <button [disabled]="!updateForm.form.valid" type="submit" class="btn btn-primary">Update Details</button>
             <br><br><br><br><br><br><br>
               
             </form>
