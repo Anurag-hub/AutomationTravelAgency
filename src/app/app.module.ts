@@ -26,9 +26,9 @@ import { AdminPut} from './vehicle/admin.put';
 import { AdminDelete } from './vehicle/admin.delete';
 import { AdminComponent } from './vehicle/admin.component';
 import {HomepageComponent} from './homepage/homepage.component';
-import {AdminLoginComponent} from './AdminLogin/admin.login.component'
-import {RegistrationOptionComponent} from './login/registration.options'
-import {AdminOptionComponent} from './AdminDashboard/admin.options'
+import {AdminLoginComponent} from './AdminLogin/admin.login.component';
+import {RegistrationOptionComponent} from './login/registration.options';
+import {AdminOptionComponent} from './AdminDashboard/admin.options';
 
 @NgModule({
   declarations: [
@@ -75,7 +75,10 @@ import {AdminOptionComponent} from './AdminDashboard/admin.options'
           {path:"logout",component:LogoutComponent},
           {path:"changePass",component:ChangePasswordComponent},
           {path:"adminLogin",component:AdminLoginComponent},
-          {path:"adminOptions",component:AdminOptionComponent}
+          {path:"adminOptions",component:AdminOptionComponent},
+          {path:"adminVehicle",component: AdminComponent},
+          {path:"adminRoute",component: RouteComponent},
+          {path:"adminDriver",component: DriverComponent},
         ]
     },
 

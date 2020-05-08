@@ -5,6 +5,7 @@ import { DriverService } from '../services/driver.services';
 @Component({
   selector: 'appdriver',
   templateUrl: './driver.component.html',
+  //styleUrls: ['./diver.component.css'],
  providers:[DriverService]
   })
 

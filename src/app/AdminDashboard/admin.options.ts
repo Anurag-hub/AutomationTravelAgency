@@ -21,6 +21,16 @@ export class AdminOptionComponent implements OnInit {
   ngOnInit(): void 
   {
   }
+  goToVehicle(){
+    this.router.navigate(['adminVehicle'])
+  }
+  goToDriver(){
+    this.router.navigate(['adminDriver'])
 
+  }
+  goToRout(){
+    this.router.navigate(['adminRoute'])
+
+  }
     
   }

@@ -40,7 +40,7 @@ h3{
     /* float: right; */
 }
 #vehicle-list{
-    height: 100px;
+    height: 50px;
     margin-left: 980px;
     transform: translateY(170px);
 }
