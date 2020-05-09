@@ -31,7 +31,7 @@ import { DriverService } from '../services/driver.services';
      onSubmit(name:any,street:any,location:any,city:any,state:any,pincode:any,mobile:any,license:any)
      {
        this.sessionId=sessionStorage.getItem("sessionId");
-       this.sessionId="5017e";
+       
        
             this.driverService.addDriverDetails({
                 "name":name.value,
@@ -56,7 +56,7 @@ import { DriverService } from '../services/driver.services';
   
 updateDriver(id:any,name:any,street:any,location:any,city:any,state:any,pincode:any,mobile:any,license:any) {
   this.sessionId=sessionStorage.getItem("sessionId");
-  this.sessionId="5017e";
+  
   let driver = {
     "id":id.value,
     "name":name.value,
