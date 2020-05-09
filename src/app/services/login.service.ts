@@ -18,9 +18,12 @@ export class LoginService{
       loginUser(userObj)  {
 
         return this._httpClient.post( 'http://localhost:8080/app/admin/user/login' ,JSON.stringify(userObj) , {headers: this.httpHeaders}).subscribe(
-          (response :Result)=>{this.sessionId=response.sessionId}
-        )  ;
+          (response :Result)=>{this.sessionId=response.sessionId;
+            sessionStorage.setItem("sessionId",this.sessionId);}
+          
+        );
         }
+        
 
 
 }

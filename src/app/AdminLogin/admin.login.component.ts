@@ -33,7 +33,7 @@ export class AdminLoginComponent implements OnInit {
      this.loginService.loginUser(this.login);
      if(this.loginService.sessionId != null){
      console.log("sessionId: ",this.loginService.sessionId)
-     sessionStorage.setItem("sessionId",this.sessionId);
+     sessionStorage.setItem("sessionId",this.loginService.sessionId);
     this.router.navigate(['/adminOptions'])
     }
      else{

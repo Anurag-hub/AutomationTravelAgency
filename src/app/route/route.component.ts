@@ -41,8 +41,7 @@ import { RouteService } from '../services/route.services';
      onSubmit(source:any,destination:any,distance:any,time:any)
      {
        this.sessionId=sessionStorage.getItem("sessionId");
-       this.sessionId="5017e";
-       
+
             this.routeService.addRouteDetails({
  
                 "source":source.value,
@@ -63,7 +62,6 @@ import { RouteService } from '../services/route.services';
 updateRoute(routeId:any,source:any,destination:any,distance:any,time:any) {
   let temp=[];
   this.sessionId=sessionStorage.getItem("sessionId");
-  this.sessionId="5017e";
   let route = {
     
     source:source.value,
@@ -100,11 +98,18 @@ updateRoute(routeId:any,source:any,destination:any,distance:any,time:any) {
     console.log("id=",routeid);
     let temp=[];
     this.sessionId=sessionStorage.getItem("sessionId");
-this.sessionId="5017e";
-
     this.routeService.deleteRouteDetails(routeid,this.sessionId).
     subscribe(
-      (response)=>{console.log("Route deleted");
+      (response)=>{console.log("Route deleted",response);
+      this.route.forEach(element => {if(element.routeId!=routeid){
+        temp.push(element);
+      }
+      },
+      )
+      this.route=temp; 
+      console.log("temp =",temp);
+      console.log("response =",this.route);
+      
       // temp.push(response);
       // temp.slice(routeid,1);
       // this.route=temp; 

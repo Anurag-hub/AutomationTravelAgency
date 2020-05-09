@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.loginUser(this.login);
     if(this.loginService.sessionId != null){
-     sessionStorage.setItem("sessionId",this.sessionId);
+    //  sessionStorage.setItem("sessionId",this.sessionId);
      this.router.navigate(['/dash'])
     }
     else{
