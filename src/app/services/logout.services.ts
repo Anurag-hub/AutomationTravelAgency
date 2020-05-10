@@ -15,7 +15,7 @@ export class LogoutService{
 
       deleteUser(sessionId) : Observable<Object> {
 
-        return this._httpClient.delete( 'http://localhost:8080/app/admin/user/logout' , {headers: this.httpHeaders.set('auth-token',sessionId)})  ;
+        return this._httpClient.delete( 'http://localhost:8080/app/admin/user/logout' , {headers: this.httpHeaders.set('authtoken',sessionId)})  ;
         }
 
 

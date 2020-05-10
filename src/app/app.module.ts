@@ -20,11 +20,8 @@ import {RouteComponent} from './route/route.component';
 import {ChangePasswordComponent} from './changePassword/changepassword.component';
 import {RouterModule, Router, Routes} from '@angular/router';
 import {LogoutComponent} from './logout/logout.component';
-import {DashBoardComponent} from './dashboard/dashboard.component'
-import { AdminPost } from './vehicle/admin.post';
-import { AdminPut} from './vehicle/admin.put';
-import { AdminDelete } from './vehicle/admin.delete';
-import { AdminComponent } from './vehicle/admin.component';
+import {DashBoardComponent} from './dashboard/dashboard.component';
+import {VehicleComponent} from './vehicle/vehicle.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {AdminLoginComponent} from './AdminLogin/admin.login.component';
 import {RegistrationOptionComponent} from './login/registration.options';
@@ -33,7 +30,7 @@ import {AdminOptionComponent} from './AdminDashboard/admin.options';
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
+   VehicleComponent,
    CreditCardComponent,
     BookingComponent,
    LoginComponent,
@@ -44,8 +41,7 @@ import {AdminOptionComponent} from './AdminDashboard/admin.options';
     AdministratorComponent,
     ChangePasswordComponent,
     LogoutComponent,
-    AdminPost,
-    AdminPut,AdminDelete,DriverComponent,
+   DriverComponent,
     AdminLoginComponent,
     HomepageComponent,
     DashBoardComponent,
@@ -76,7 +72,7 @@ import {AdminOptionComponent} from './AdminDashboard/admin.options';
           {path:"changePass",component:ChangePasswordComponent},
           {path:"adminLogin",component:AdminLoginComponent},
           {path:"adminOptions",component:AdminOptionComponent},
-          {path:"adminVehicle",component: AdminComponent},
+          {path:"adminVehicle",component: VehicleComponent},
           {path:"adminRoute",component: RouteComponent},
           {path:"adminDriver",component: DriverComponent},
         ]

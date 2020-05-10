@@ -34,9 +34,11 @@ export class LoginComponent implements OnInit {
     this.loginService.loginUser(this.login);
     if(this.loginService.sessionId != null){
     //  sessionStorage.setItem("sessionId",this.sessionId);
+    window.location.reload()
      this.router.navigate(['/dash'])
     }
     else{
+      window.location.reload()
    console.log("failed")
   }
  }

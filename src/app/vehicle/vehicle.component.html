@@ -1,1 +1,239 @@
-<p>vehicle works!</p>
+<div id="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top">
+          <span id="logo-IBM"><p><strong style="border-style: solid; border-color: rgb(3, 8, 6); margin: 10px;padding: 10px;border-radius: 10px;">Automation Travel Agency</strong></p></span>
+          <ul class="nav  navbar-nav navbar-right nav-pills">
+              <li><a href="dashboard.html" style="color: black;"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+              <li><a href="logout" style="color: black;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+      </nav>
+  </div>
+  <div id="bg-img" class="view">
+      <div class="ful-bg-img"></div>
+  </div>
+  <img id="top-image" src="images/car-funny1.svg"> 
+  
+  <div class="container">
+      
+       <div id="welcome">
+          <img src="../../assets/images/vehicle-list.svg" id="vehicle-list" alt="" style="width: 0%;">  <h1 id="page-title">Vehicle List</h1>
+        </div>
+      <div id="funny-car">
+          <img id="top-image2" src="../../assets/images/undraw_toy_car_7umw.svg" style="height:100px">
+      </div>
+      <div class="row">
+          <div class="col-xs-12">
+              <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-responsive">
+                      <thead>
+                          <tr >
+                            <th>Vehicle Id</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Registration Number</th>
+                            <th>Seating capacity</th>
+                            <th>fare per km</th>
+                            <th> </th>
+                            <th> </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let ele of vehicle">
+                            <td>{{ele.vehicleId}}</td>
+                            <td>{{ele.name}}</td>
+                            <td>{{ele.type}}</td>
+                            <td>{{ele.registrationNumber}}</td>
+                            <td>{{ele.seatingCapacity}}</td>
+                            <td>{{ele.farePerKm}}</td>
+                            
+                                      <td><button (click)="upVehicle()" type="submit" class="btn btn-primary">Update</button>
+                                      </td>      
+                                      <td><button (click)="deleteVehicle(ele.vehicleId)"  class="btn btn-danger">Delete</button>
+                           
+                          </tr>
+                      </tbody>
+                  </table>
+                  <button (click)="addVehicle()" type="submit" class="btn btn-primary">Add Vehicle</button>
+
+              </div>
+          </div>
+      </div>
+      <br><br><br><br><br><br><br><br>
+      <div>
+        <form *ngIf="add" #addForm="ngForm" (ngSubmit)="onSubmit(name,type,registrationNumber,seatingCapacity,farePerKm)" class="alignRight col-md-6 offset-md-6" novalidate>
+            <h1>Add Vehicle</h1>
+        <br>
+        <div class="form-group">
+        <input type='text' name="name" class="form-control" placeholder="Enter Name" #name="ngModel" required minlength="3" maxlength="20" ngModel>
+        <div *ngIf="name.errors && name.touched" class="alert alert-danger">
+         <div [hidden]="!name.errors.required" class="alert alert-danger">
+         Please Enter Name
+         </div>
+         <div [hidden]="!name.errors.minlength" class="alert alert-danger">
+           Name should be minimum 3 characters long 
+        </div>
+        <div [hidden]="!name.errors.maxlength" class="alert alert-danger">
+           Name should be maximum 20 characters long 
+          </div>
+        </div>
+        </div>
+
+        <div class="form-group">
+        <input type='text' name="type" class="form-control" placeholder="Enter type" #type="ngModel" required minlength="1" maxlength="6" ngModel>
+        <div *ngIf="type.errors && type.touched" class="alert alert-danger">
+         <div [hidden]="!type.errors.required" class="alert alert-danger">
+         Please Enter type (AC / NON-AC)
+         </div>
+         <div [hidden]="!type.errors.minlength" class="alert alert-danger">
+            Type should be minimum 1 character
+        </div>
+        <div [hidden]="!type.errors.maxlength" class="alert alert-danger">
+            Type should be maximum 6 characters long 
+          </div>
+        </div>
+        </div>
+
+
+        <div class="form-group">
+        <input type='text' name="registrationNumber" class="form-control" placeholder="Enter the registrationNumber " #registrationNumber="ngModel" required ngModel>
+        <div *ngIf="registrationNumber.errors && registrationNumber.touched" class="alert alert-danger">
+        <div [hidden]="!registrationNumber.errors.required" class="alert alert-danger">
+        Please Enter Registration Number
+        </div>
+        </div>
+        </div>
+
+
+        <div class="form-group">
+        <input type='number' name="seatingCapacity" class="form-control" placeholder="Enter seatingCapacity " #seatingCapacity="ngModel" required ngModel>
+        <div *ngIf="seatingCapacity.errors && seatingCapacity.touched" class="alert alert-danger">
+        <div [hidden]="!seatingCapacity.errors.required" class="alert alert-danger">
+        Please Enter seatingCapacity
+        </div>
+        </div>
+        </div>
+
+
+        <div class="form-group">
+            <input type='number' name="farePerKm" class="form-control" placeholder="Enter farePerKm " #farePerKm="ngModel" required ngModel>
+            <div *ngIf="farePerKm.errors && farePerKm.touched" class="alert alert-danger">
+            <div [hidden]="!farePerKm.errors.required" class="alert alert-danger">
+            Please Enter farePerKm
+            </div>
+            </div>
+            </div>
+        
+        
+        <button [disabled]="!addForm.form.valid" type="submit" class="btn btn-primary">Add Vehicle</button>
+        <br><br><br><br><br><br><br>
+        
+        <div class='table-responsive'>  
+            <table class='table'>    
+            </table> 
+            
+        </div>  
+        </form>
+        
+                <div>
+            <form *ngIf="update" #updateForm="ngForm" (ngSubmit)="updateVehicle(vehicleId,name,type,registrationNumber,seatingCapacity,farePerKm)" class="alignRight col-md-6 offset-md-6" novalidate>
+                <h1>Update Vehicle</h1>
+            <br>
+            <div class="form-group">
+                <input type='number' name="vehicleId" class="form-control" placeholder="Enter vehicleId" #vehicleId="ngModel" required minlength="1"  ngModel>
+                <div *ngIf="vehicleId.errors && vehicleId.touched" class="alert alert-danger">
+                 <div [hidden]="!vehicleId.errors.required" class="alert alert-danger">
+                 Please Enter id
+                 </div>
+                 <div [hidden]="!vehicleId.errors.minlength" class="alert alert-danger">
+                   id should be minimum 3 characters long 
+                </div>
+
+                </div>
+                </div>
+
+            <div class="form-group">
+            <input type='text' name="name" class="form-control" placeholder="Enter name" #name="ngModel" required minlength="3" maxlength="20" ngModel>
+            <div *ngIf="name.errors && name.touched" class="alert alert-danger">
+             <div [hidden]="!name.errors.required" class="alert alert-danger">
+             Please Enter name
+             </div>
+             <div [hidden]="!name.errors.minlength" class="alert alert-danger">
+                name should be minimum 3 characters long 
+            </div>
+            <div [hidden]="!name.errors.maxlength" class="alert alert-danger">
+                name should be maximum 20 characters long 
+              </div>
+            </div>
+            </div>
+
+
+            <div class="form-group">
+            <input type='text' name="type" class="form-control" placeholder="Enter type" #type="ngModel" required minlength="2" maxlength="6" ngModel>
+            <div *ngIf="type.errors && type.touched" class="alert alert-danger">
+             <div [hidden]="!type.errors.required" class="alert alert-danger">
+              Please Enter type (AC / NON-AC)
+             </div>
+             <div [hidden]="!type.errors.minlength" class="alert alert-danger">
+                Type should be minimum 2 characters long 
+            </div>
+            <div [hidden]="!type.errors.maxlength" class="alert alert-danger">
+                type should be maximum 20 characters long 
+              </div>
+            </div>
+            </div>
+
+
+            <div class="form-group">
+            <input type='text' name="registrationNumber" class="form-control" placeholder="Enter the registrationNumber " #registrationNumber="ngModel" required ngModel>
+            <div *ngIf="registrationNumber.errors && registrationNumber.touched" class="alert alert-danger">
+            <div [hidden]="!registrationNumber.errors.required" class="alert alert-danger">
+            Please Enter registrationNumber
+            </div>
+            </div>
+            </div>
+
+
+
+            <div class="form-group">
+            <input type='number' name="seatingCapacity" class="form-control" placeholder="Enter seatingCapacity" #seatingCapacity="ngModel" required ngModel>
+            <div *ngIf="seatingCapacity.errors && seatingCapacity.touched" class="alert alert-danger">
+            <div [hidden]="!seatingCapacity.errors.required" class="alert alert-danger">
+            Please Enter seatingCapacity
+            </div>
+            </div>
+            </div>
+
+
+
+              <div class="form-group">
+                <input type='number' name="farePerKm" class="form-control" placeholder="Enter farePerKm" #farePerKm="ngModel" required ngModel>
+                <div *ngIf="farePerKm.errors && farePerKm.touched" class="alert alert-danger">
+                <div [hidden]="!farePerKm.errors.required" class="alert alert-danger">
+                Please Enter farePerKm
+                </div>
+                </div>
+                </div>
+         
+           
+            <button [disabled]="!updateForm.form.valid"  type="submit" class="btn btn-primary">Update Details</button>
+            <br><br><br><br><br><br><br>
+              
+            </form>
+        </div>
+      </div>
+  </div>
+  
+  
+  <div id="footer-container">
+  <footer>
+          <div class="social">
+              <a href="#" class="fa fa-youtube" id="social-icon"style="color: rgb(255, 255, 255); "></a>
+              <a href="https://github.com/saismaran98/eclipse-workspace" id="social-icon" target="_blank" class="fa fa-github" style="color: white;"></a>
+              <a href="#" class="fa fa-linkedin" style="color: white;" id="social-icon"></a>
+              <a href="#" class="fa fa-google-plus" aria-hidden="true" style="color: white;" id="social-icon"></a>
+              <a href="#" class="fa fa-twitter" aria-hidden="true" style="color: white;" id="social-icon"></a>
+          </div>
+         
+  </footer>
+  </div>
+      
+  

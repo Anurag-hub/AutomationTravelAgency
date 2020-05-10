@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 
 export class AdminLoginComponent implements OnInit {
   login: Object;
+  
   sessionId:string = this.loginService.sessionId;
 
 
@@ -29,16 +30,17 @@ export class AdminLoginComponent implements OnInit {
        emailId:emailId.value,
        password:password.value
      }
-     
-     this.loginService.loginUser(this.login);
+      this.loginService.loginUser(this.login);
+    
      if(this.loginService.sessionId != null){
      console.log("sessionId: ",this.loginService.sessionId)
      sessionStorage.setItem("sessionId",this.loginService.sessionId);
+     
     this.router.navigate(['/adminOptions'])
     }
      else{
-      
+      alert("click login again to continue")
+
      }  
-  }
+    }}
     
-  }

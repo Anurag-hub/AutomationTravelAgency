@@ -27,9 +27,11 @@ export class RegistrationOptionComponent implements OnInit {
   }
   goToAdminRegistration(){
     this.router.navigate(['registerAdmin'])
+  
   }
   goToUserRegistration(){
     this.router.navigate(['registerCustomer'])
+    
   }
 
 }
