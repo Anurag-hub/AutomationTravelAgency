@@ -39,7 +39,7 @@ export class AdminLoginComponent implements OnInit {
     this.router.navigate(['/adminOptions'])
     }
      else{
-      alert("click login again to continue")
+      alert("click login to continue")
 
      }  
     }}
